@@ -1,3 +1,3 @@
-# angularsketch
+# flickrsketch
 
-Sketch made with AngularJS and jQuery.
+App sketch made with jQuery
