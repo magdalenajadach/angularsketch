@@ -13,14 +13,15 @@ $.getJSON(flickerAPI, {
 
   $.each( data.items, function( i, item ) {
 
-    if ( i <= 19 ) {
+    
 
       $( '<img>' ).attr( 'src', item.media.m ).appendTo( '#potato' );
+      $( '<p>').attr( item.date_taken ).appendTo( '<img>' );
       // $('<p>').attr(item.title).appendTo('#potato');
-      $('<a>').attr('href', item.link).appendTo('#potato');
+      // $('<a>').attr('href', item.link).appendTo('#potato');
 
-      return false;
-    }
+    //   return false; 
+    
   });
 });
 
