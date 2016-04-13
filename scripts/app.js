@@ -10,12 +10,16 @@ $.getJSON(flickerAPI, {
 })
 
 .done(function( data ) {
+  $.each(data.items, function(i,item){
+    $("<img />").attr("src", item.media.m).appendTo(".potato");
+    })
+});
   // console.log(data);
-  data.items.length;
-  for (var i = 0; i < data.items.length; i++) {
-    var currentItem = data.items[i];
-  $('<img />').attr('src', item.media.m).appendTo(".potato");
-    }});
+  // data.items.length;
+  // for (var i = 0; i < data.items.length; i++) {
+  //   var currentItem = data.items[i];
+  // $('<img />').attr('src', item.media.m).appendTo(".potato");
+  //   }});
 
 //     var body = $('body'); 
 //     śvar newDiv = $('<div></div');
