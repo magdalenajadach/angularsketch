@@ -10,19 +10,13 @@ $.getJSON(flickerAPI, {
 })
 
 .done(function( data ) {
+  // console.log(data);
+  data.items.length;
+  for (var i = 0; i < data.items.length; i++) {
+    var currentItem = data.items[i];
+    //div, img, div + img, desc
+  };
 
-  $.each( data.items, function( i, item ) {
-
-    
-
-      $( '<img>' ).attr( 'src', item.media.m ).appendTo( '#potato' );
-      $( '<p>').attr( item.date_taken ).appendTo( '<img>' );
-      // $('<p>').attr(item.title).appendTo('#potato');
-      // $('<a>').attr('href', item.link).appendTo('#potato');
-
-    //   return false; 
-    
-  });
 });
 
 
