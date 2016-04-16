@@ -1,4 +1,7 @@
 // Write a series of JS instructions to create a structure as the "Flickrtatoes" app.
+// var newTitle = $('<h1></h1>');
+// newTitle.text('jQuery sketch');
+// newTitle.appendTo('#potato'); //Why my title is always at the bottom?
 
 var flickerAPI = 'http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?';
 
@@ -12,61 +15,22 @@ $.getJSON(flickerAPI, {
     for (var i = 0; i < data.items.length; i++) {
       var currentItem = data.items[i];
       var newLi = $('<li></li>').attr('class', 'list-group-item');
+      var newTitle = $('<h2></h2>');
+      newTitle.text(currentItem.title).appendTo(newLi);
+      var newLine = $('<hr>');
+      newLine.appendTo(newLi);
       $('<img />').attr('src', currentItem.media.m).appendTo(newLi);
       var authorParagraph = $('<p></p>');
       authorParagraph.text(currentItem.author);
       authorParagraph.appendTo(newLi);
       var dateParagraph = $('<p></p>');
       dateParagraph.text(currentItem.date_taken);
-      dateParagraph.appendTo(newLi)
+      dateParagraph.appendTo(newLi);
+      var newLink = $('<a></a>');
+      newLink.attr('href', currentItem.link);
+      newLink.text('Click me to check out potato at Flickr!');
+      newLink.appendTo(newLi);
       newLi.appendTo('.listView');
       //addClass
     }
 });
-
-//     var body = $('body'); 
-//     śvar newDiv = $('<div></div');
-
-// //2. I have selected <div> and added class to it:
-// newDiv.attr('class', 'personal-info-container');
-
-
-// //4. Added h1 element + added some text <p> to it:
-// var newHeader = $('<h1></h1>');
-// newHeader.appendTo(newDiv);
-// newHeader.text('I am Magda');
-
-    //div, img
-
-// .done(function( data ) {
-//   $.each(data.items, function(i,item){
-//     $("<img />").attr("src", item.media.m).appendTo(".potato");
-//     })
-// });
-
-
- // function(data) {
- //    $.each(data.items, function(i,item){
- //      $('<img />'').attr('src', item.media.m).appendTo('#potato');
- //      if ( i == 3 ) return false;
- //    });
-
-
-// 1. <h1>Flickrtatoes sketch</h1>
-
-// 2. horizontal line
-
-// 3. Picture
-
-// 4. Title
-
-// 5. Post author
-
-// 6. Date 
-
-// 7. View on Flickr => link to Flikcr page
-
-// 8. hotizontal line
-
-// 9. Copyright Magdalena Jadach => link to magdalenajadach.github.io 
-// 10. Icons Font Awesome => link to Fonts Awesome
