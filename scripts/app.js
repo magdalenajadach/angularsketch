@@ -11,15 +11,15 @@ $.getJSON(flickerAPI, {
     data.items.length;
     for (var i = 0; i < data.items.length; i++) {
       var currentItem = data.items[i];
-      var newDiv = $('<div></div>').attr('class', 'potatoContainer');
-      $('<img />').attr('src', currentItem.media.m).appendTo(newDiv);
+      var newLi = $('<li></li>').attr('class', 'list-group-item');
+      $('<img />').attr('src', currentItem.media.m).appendTo(newLi);
       var authorParagraph = $('<p></p>');
       authorParagraph.text(currentItem.author);
-      authorParagraph.appendTo(newDiv);
+      authorParagraph.appendTo(newLi);
       var dateParagraph = $('<p></p>');
       dateParagraph.text(currentItem.date_taken);
-      dateParagraph.appendTo(newDiv)
-      newDiv.appendTo('#potato');
+      dateParagraph.appendTo(newLi)
+      newLi.appendTo('.listView');
       //addClass
     }
 });
