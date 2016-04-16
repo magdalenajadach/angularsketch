@@ -1,5 +1,3 @@
-// The task:
-
 // Write a series of JS instructions to create a structure as the "Flickrtatoes" app.
 
 var flickerAPI = 'http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?';
@@ -8,18 +6,23 @@ $.getJSON(flickerAPI, {
   tags: 'potato',
   format: 'json'
 })
-
 .done(function( data ) {
-  $.each(data.items, function(i,item){
-    $("<img />").attr("src", item.media.m).appendTo(".potato");
-    })
+  console.log(data);
+    data.items.length;
+    for (var i = 0; i < data.items.length; i++) {
+      var currentItem = data.items[i];
+      var newDiv = $('<div></div>').attr('class', 'potatoContainer');
+      $('<img />').attr('src', currentItem.media.m).appendTo(newDiv);
+      var authorParagraph = $('<p></p>');
+      authorParagraph.text(currentItem.author);
+      authorParagraph.appendTo(newDiv);
+      var dateParagraph = $('<p></p>');
+      dateParagraph.text(currentItem.date_taken);
+      dateParagraph.appendTo(newDiv)
+      newDiv.appendTo('#potato');
+      //addClass
+    }
 });
-  // console.log(data);
-  // data.items.length;
-  // for (var i = 0; i < data.items.length; i++) {
-  //   var currentItem = data.items[i];
-  // $('<img />').attr('src', item.media.m).appendTo(".potato");
-  //   }});
 
 //     var body = $('body'); 
 //     śvar newDiv = $('<div></div');
@@ -35,7 +38,11 @@ $.getJSON(flickerAPI, {
 
     //div, img
 
-
+// .done(function( data ) {
+//   $.each(data.items, function(i,item){
+//     $("<img />").attr("src", item.media.m).appendTo(".potato");
+//     })
+// });
 
 
  // function(data) {
