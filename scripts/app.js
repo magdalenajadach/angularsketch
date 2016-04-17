@@ -25,6 +25,7 @@ $.getJSON(flickerAPI, {
       authorParagraph.appendTo(newLi);
       var dateParagraph = $('<p></p>');
       dateParagraph.text(currentItem.date_taken);
+      dateParagraph.addClass('test_class');
       dateParagraph.appendTo(newLi);
       var newLink = $('<a></a>');
       newLink.attr('href', currentItem.link);
